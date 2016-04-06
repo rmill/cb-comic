@@ -1,35 +1,57 @@
 <?php
+
 /**
- * Template Name: Upload
  * Description: Uploads an image to a chapter
  */
-?>
 
-<?php
+include_once 'lib/Chapter.php';
+include_once 'lib/Comic.php';
+include_once 'lib/Page.php';
 
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
 // Get all images and chapters
 if ($requestMethod == 'GET') {
-	return;
+	$comic = Comic::factory();
+	echo json_encode($comic->toArray());
 }
 
-$pageNumber = $_POST['page_number'];
-$chapterNumber = $_POST['chapter_number'];
-
-$comicDir = dirname(__FILE__) . '/../../uploads/live';
-
-// Add a new image/chapter
-if ($requesetMethod == 'POST') {
-        $fileExtension = $_FILE['page']['type'];
-        $fileContents = file_get_contents($FILE['page']['?']);
-        $filePath = "$comicDir/$chapter/$pageNumber.$fileExtenstion";
-
-	file_put_contents($filePath, $fileContents);
-}
+// Only logged in users have access to POST and DELETE
+// if (!is_user_logged_in()) {
+// 	return;
+// }
 
 if ($requestMethod == 'DELETE') {
-	$filePath = $_DELETE['file_path'];
-	unlink($filePath);
+	$page = Page::findById($_GET['page_id']);
+
+	if (!$page) {
+		return;
+	}
+
+	$page->delete();
 }
-?>
+
+if ($requestMethod == 'POST') {
+	$data = $_POST;
+	$resourceType = $data['resource'];
+
+	if ($resourceType == 'page') {
+		$resource = new Page($data['page_name'], $data['page_number'], $data['chapter_id'], $_FILES['page_image']['name']);
+
+		// Upload the image
+		$filePath = $_FILES['page_image']['tmp_name'];
+		$newFilePath = getcwd() . '/../../../wp-content/uploads/live/' . $_FILES['page_image']['name'];
+
+		rename($filePath, $newFilePath);
+		chmod($newFilePath, 0644);
+		header("Location: " . $_SERVER['HTTP_REFERER']);
+	}
+
+	if ($resourceType == 'chapter') {
+		$resource = new Chapter($data['chapter_number'], $data['chapter_title']);
+	}
+
+	$resource->save();
+}
+
+return '';

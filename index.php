@@ -13,8 +13,8 @@
 
 <?php get_header(); ?>
 
-<script type="text/javascript" src="http://cb-comic.com/wp-content/themes/cb-comics/js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="http://cb-comic.com/wp-content/themes/cb-comics/js/content-navigation-1.1.js"></script>
+<script type="text/javascript" src="wp-content/themes/cb-comics/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="wp-content/themes/cb-comics/js/content-navigation-1.1.js"></script>
 
 <div class="content">
   <div class="content-navigation">

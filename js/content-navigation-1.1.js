@@ -37,15 +37,15 @@ var contentNavigation = {
 
         default: return; // exit this handler for other keys
       }
-      
+
       e.preventDefault(); // prevent the default action (scroll / move caret)
     });
 
     // Initialize the chapter select
-    $.each(this.comic.chapters, function(key, chapter) {   
+    $.each(this.comic.chapters, function(key, chapter) {
       self.chapterSelectEl.append($("<option></option>")
                           .attr("value", chapter.number)
-                          .text(chapter.name)); 
+                          .text(chapter.name));
     });
 
     this.processHash();
@@ -55,7 +55,7 @@ var contentNavigation = {
    * #0-1
    */
   processHash: function() {
-    // Get the chapter  
+    // Get the chapter
     var hash = document.location.hash.replace('#', '');
     var hashValues = hash.split('-');
 
@@ -64,9 +64,9 @@ var contentNavigation = {
 
     if (!this.comic.chapters[chapter] || !this.comic.chapters[chapter].pages[page]) {
       // Default is the first page of the last chapter
-      chapter = this.comic.chapters[this.comic.chapters.length - 1].number; 
+      chapter = this.comic.chapters[this.comic.chapters.length - 1].number;
       page = 0;
-    } 
+    }
 
     this.showPage(chapter, page, false);
   },
@@ -139,8 +139,7 @@ var contentNavigation = {
 
     this.page = pageNumber;
     this.chapter = chapterNumber;
-
-    this.imgEl.attr('src', 'http://cb-comic.com/wp-content/uploads/live/' + chapterNumber+ '/' + pageNumber + '.png');
+    this.imgEl.attr('src', this.comic.chapters[chapterNumber].pages[pageNumber].file_path);
 
     // Update the hash
     var updateHash = (updateHash === undefined ? true : updateHash);
@@ -155,10 +154,10 @@ function isInt(n) {
 }
 
 window.onload = function () {
-  var comic = null;  
+  var comic = null;
 
   $.ajax({
-    url: 'http://cb-comic.com/api',
+    url: '/wp-content/themes/cb-comics/upload.php',
     success: function(response) {
       comic = JSON.parse(response);
 
