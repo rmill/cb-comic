@@ -63,9 +63,9 @@ var contentNavigation = {
     var page = Number(hashValues[1]);
 
     if (!this.comic.chapters[chapter] || !this.comic.chapters[chapter].pages[page]) {
-      // Default is the first page of the last chapter
+      // Default is the second page of the last chapter
       chapter = this.comic.chapters[this.comic.chapters.length - 1].number;
-      page = 0;
+      page = (this.comic.chapters[chapter].pages[1]) ? 1 : 0;
     }
 
     this.showPage(chapter, page, false);
