@@ -107,12 +107,13 @@ function naturo_lite_font_url(){
 
 
 function register_script($name, $dependencies = array()) {
-    $path = get_template_directory_uri() . "/js/$name.js";
+    $uri = get_template_directory_uri() . "/js/$name.js";
+    $path = get_template_directory() . "/js/$name.js";
     $dateModified = filemtime($path);
 
     wp_register_script(
         $name,
-        $path,
+        $uri,
         $dependencies,
         $dateModified
     );
