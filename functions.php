@@ -106,10 +106,31 @@ function naturo_lite_font_url(){
 	}
 
 
-function naturo_lite_scripts() {
-	wp_enqueue_style( 'naturo_lite-basic-style', get_stylesheet_uri() );
+function register_script($name, $dependencies = array()) {
+    $path = get_template_directory_uri() . "/js/$name.js";
+    $dateModified = filemtime($path);
+
+    wp_register_script(
+        $name,
+        $path,
+        $dependencies,
+        $dateModified
+    );
 }
-add_action( 'wp_enqueue_scripts', 'naturo_lite_scripts' );
+
+function init_scripts() {
+    register_script('content-navigation', 'jquery');
+
+    if (is_home()) {
+        wp_enqueue_script('content-navigation');
+    }
+}
+add_action('wp_enqueue_scripts', 'init_scripts');
+
+function init_stylesheets() {
+    wp_enqueue_style('basic-style', get_stylesheet_uri());
+}
+add_action('wp_enqueue_scripts', 'init_stylesheets');
 
 function naturo_lite_ie_stylesheet(){
 	global $wp_styles;
