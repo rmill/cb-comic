@@ -17,9 +17,9 @@ if ($requestMethod == 'GET') {
 }
 
 // Only logged in users have access to POST and DELETE
-// if (!is_user_logged_in()) {
-// 	return;
-// }
+if (!current_user_can('upload_files')) {
+    return;
+}
 
 if ($requestMethod == 'DELETE') {
 	$page = Page::findById($_GET['page_id']);
