@@ -25,7 +25,7 @@
   <a href="/">Read the Comic</a> -
   <a href="<?php echo get_page_link(31); ?>">About</a> -
   <a href="<?php echo get_page_link(20); ?>">Support the Series</a> - 
-  <a href="http://cbcomic.bandcamp.com">Soundtrack</a> -
+  <a href="http://cb-comic.com/soundtrack">Soundtrack</a> -
   <a href="http://cb-comic.tumblr.com">Tumblr</a> - 
   <a href="https://www.patreon.com/cbcomic">Patreon</a>
   </h2>
