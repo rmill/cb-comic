@@ -25,9 +25,9 @@ var contentNavigation = {
     this.nextPageEl.click(function(){self.goToNextPage()});
     this.imgEl.click(function(){self.goToNextPage()});
     this.lastPageEl.click(function(){self.goToLastPage()});
-    this.chapterSelectEl.change(function(){self.goToChapter($(this).val())});
+    this.chapterSelectEl.change(function(){self.goToChapter(jQuery(this).val())});
 
-    $('body').keydown(function(e) {
+    jQuery('body').keydown(function(e) {
        switch(e.which) {
         case 37: self.goToPreviousPage(); // left
         break;
@@ -42,8 +42,8 @@ var contentNavigation = {
     });
 
     // Initialize the chapter select
-    $.each(this.comic.chapters, function(key, chapter) {
-      self.chapterSelectEl.append($("<option></option>")
+    jQuery.each(this.comic.chapters, function(key, chapter) {
+      self.chapterSelectEl.append(jQuery("<option></option>")
                           .attr("value", chapter.number)
                           .text(chapter.name));
     });
@@ -156,18 +156,18 @@ function isInt(n) {
 window.onload = function () {
   var comic = null;
 
-  $.ajax({
+  jQuery.ajax({
     url: '/wp-content/themes/cb-comics/upload.php',
     success: function(response) {
       comic = JSON.parse(response);
 
       contentNavigation.initialize({
-        firstPageEl: $('.content-navigation .first'),
-        previousPageEl: $('.content-navigation .previous'),
-        nextPageEl: $('.content-navigation .next'),
-        lastPageEl: $('.content-navigation .last'),
-        imgEl: $('.comic-page img'),
-        chapterSelectEl: $('.content-navigation .chapter-select'),
+        firstPageEl: jQuery('.content-navigation .first'),
+        previousPageEl: jQuery('.content-navigation .previous'),
+        nextPageEl: jQuery('.content-navigation .next'),
+        lastPageEl: jQuery('.content-navigation .last'),
+        imgEl: jQuery('.comic-page img'),
+        chapterSelectEl: jQuery('.content-navigation .chapter-select'),
         comic: comic
       });
     }
