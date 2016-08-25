@@ -189,7 +189,31 @@ a {
 .footer {
   background-color: black;
   color: white;
-  padding: 16px 39px;
+  padding: 42px 39px;
+  display: flex;
+}
+
+.footer .copyright {
+  width: 50%;
+}
+
+.footer .icons {
+  flex-grow: 1;
+}
+
+.footer i {
+  color: white;
+  float: right;
+  -o-transition:.3s;
+  -ms-transition:.3s;
+  -moz-transition:.3s;
+  -webkit-transition:.3s;
+  transition:.3s;
+  margin-left: 10px;
+}
+
+.footer i:hover {
+  opacity:0.7;
 }
 
 .chapter-box {
@@ -199,10 +223,6 @@ a {
 
 .chapter-box .upload-buttons {
 	float: right;
-}
-
-.page {
-	padding: 5px;
 }
 
 .page .page-name {

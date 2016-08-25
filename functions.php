@@ -130,6 +130,7 @@ add_action('wp_enqueue_scripts', 'init_scripts');
 
 function init_stylesheets() {
     wp_enqueue_style('basic-style', get_stylesheet_uri());
+    wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.css');
 }
 add_action('wp_enqueue_scripts', 'init_stylesheets');
 
