@@ -19,7 +19,13 @@ Text Domain: cb-comics
 
 }
 
+.mobile-only {
+  display: none;
+}
 
+.header-links-separator:before {
+  content: " -";
+}
 
 .header-banner {
 
@@ -161,14 +167,12 @@ a {
   text-align: center;
 }
 
-
 .comic-page {
-
   margin: 0px auto;
-
 }
 
 .comic-page img {
+  max-width: 90%;
   border: black solid 5px;
   cursor: pointer;
 }

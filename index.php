@@ -16,25 +16,27 @@
 <div class="content">
   <div class="content-navigation">
     <h3>
-      <a class="first">&lt;&lt;First</a>
-      <a class="previous">&lt;Previous</a>
-      <select class="chapter-select"></select>
-      <a class="next">Next&gt;</a>
-      <a class="last">Latest&gt;&gt;</a>
+      <a class="first">&lt;&lt;<span class="content-navigation-link">First</span></a>
+      <a class="previous">&lt;<span class="content-navigation-link">Previous</span></a>
+      <select class="chapter-select">
+        <option>Chapter 10</option>
+      </select>
+      <a class="next"><span class="content-navigation-link">Next</span>&gt;</a>
+      <a class="last"><span class="content-navigation-link">Latest</span>&gt;&gt;</a>
     </h3>
   </div>
 
   <div class='comic-page'>
-    <img />
+    <img src="http://cb-comic.com/wp-content/uploads/live/ch04p01.png" />
   </div>
 
   <div class="content-navigation">
     <h3>
-      <a class="first">&lt;&lt;First</a>
-      <a class="previous">&lt;Previous</a>
+      <a class="first">&lt;&lt;<span class="content-navigation-link">First</span></a>
+      <a class="previous">&lt;<span class="content-navigation-link">Previous</span></a>
       <select class="chapter-select"></select>
-      <a class="next">Next&gt;</a>
-      <a class="last">Latest&gt;&gt;</a>
+      <a class="next"><span class="content-navigation-link">Next</span>&gt;</a>
+      <a class="last"><span class="content-navigation-link">Latest</span>&gt;&gt;</a>
     </h3>
   </div>
 </div>
