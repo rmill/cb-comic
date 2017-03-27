@@ -4,6 +4,7 @@
     <div class="copyright">
 	<h4>Crash and Burn © 2016 Finn Lucullan and Kate Larking</h4>
     </div>
+    
     <div class="icons">
         <h4>
             <a href="mailto:cbcomic@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>

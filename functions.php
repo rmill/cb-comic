@@ -123,11 +123,14 @@ function init_scripts() {
     register_script('jquery');
     register_script('content-navigation', ['jquery']);
     register_script('responsive-menu', ['jquery']);
+    register_script('volume', ['jquery']);
 
     wp_enqueue_script('jquery');
     wp_enqueue_script('responsive-menu');
+    
     if (is_home()) {
-        wp_enqueue_script('content-navigation');
+      wp_enqueue_script('content-navigation');
+      wp_enqueue_script('volume');
     }
 }
 add_action('wp_enqueue_scripts', 'init_scripts');

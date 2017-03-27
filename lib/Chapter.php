@@ -4,14 +4,11 @@ include_once 'Page.php';
 include_once 'database.php';
 
 class Chapter {
-
     protected $id;
-
     protected $number;
-
     protected $name;
-
     protected $pages;
+    protected $songs;
 
     /**
      * Factory
@@ -19,7 +16,8 @@ class Chapter {
     public function factory($values) {
         // Get the pages from the database
         $pages = Page::findAllByChapter($values['id']);
-        $chapter = new self($values['number'], $values['name'], $pages);
+        $songs = Song::findAllByChapter($values['id']);
+        $chapter = new self($values['number'], $values['name'], $pages, $songs);
         $chapter->setId($values['id']);
 
         return $chapter;
@@ -28,10 +26,11 @@ class Chapter {
     /**
      * Construct an instance of the object
      */
-    public function __construct($number, $name, $pages = array()) {
+    public function __construct($number, $name, $pages = array(), $songs = array()) {
         $this->number = $number;
         $this->name = $name;
         $this->pages = $pages;
+        $this->songs = $songs;
     }
 
     public function getId() {

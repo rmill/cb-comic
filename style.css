@@ -23,6 +23,10 @@ Text Domain: cb-comics
   display: none;
 }
 
+.volume {
+  float: right;
+}
+
 .header-links-separator:before {
   content: " -";
 }
