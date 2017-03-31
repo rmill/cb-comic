@@ -17,7 +17,7 @@ class Song {
   public static function findAllByChapter($chapterId) {
       $database = Connection::getInstance();
       $values = array('chapter_id' => (int) $chapterId);
-      $results = $database->run('SELECT * FROM sogns WHERE chapter_id = :chapter_id ORDER BY number ASC', $values);
+      $results = $database->run('SELECT * FROM songs WHERE chapter_id = :chapter_id ORDER BY number ASC', $values);
 
       // Hydrate the Pages
       $songs = array();
