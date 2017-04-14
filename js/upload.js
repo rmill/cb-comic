@@ -22,7 +22,7 @@ window.onload = function () {
         var formData = jQuery(this).closest('.modal').find('form').first().serializeArray();
 
         jQuery.ajax({
-            url: '/wp-content/themes/cb-comics/upload.php?' + jQuery.param(formData),
+            url: '/upload-script?' + jQuery.param(formData),
             method: 'DELETE',
             success: function () {
                 location.reload();
@@ -55,7 +55,7 @@ window.onload = function () {
         var formData = jQuery(this).closest('.modal').find('form').first().serializeArray();
 
         jQuery.ajax({
-            url: '/wp-content/themes/cb-comics/upload.php',
+            url: '/upload-script',
             data: formData,
             method: 'POST',
             success: function () {

@@ -14,16 +14,11 @@ include_once 'lib/Comic.php';
 $comic = Comic::factory();
 ?>
 
-<script type="text/javascript" src="/wp-content/themes/cb-comics/js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="/wp-content/themes/cb-comics/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/wp-content/themes/cb-comics/js/upload.js"></script>
-<link rel="stylesheet" href="/wp-content/themes/cb-comics/css/bootstrap.min.css">
-
 <div class="container">
-<div class="row">
+<div class="row header-row">
 	<h1 class="col-md-8">Chapters</h1>
 	<div class="col-md-4">
-	  <button class="btn btn-link" data-toggle="modal" data-target="#addChapterModal">+ Add chapter</button>
+	  <button class="btn" data-toggle="modal" data-target="#addChapterModal">Add chapter</button>
 	</div>
 </div>
 <div class="row">
@@ -106,7 +101,7 @@ foreach ($comic->getChapters() as $chapter) {
         <h4 class="modal-title" id="myModalLabel">Add Page</h4>
       </div>
       <div class="modal-body">
-        <form enctype="multipart/form-data" action="/wp-content/themes/cb-comics/upload.php" method="POST">
+        <form enctype="multipart/form-data" action="/upload-script" method="POST">
           <input type="hidden" name='resource' value='page'>
           <input type="hidden" id="chapterId" name='chapter_id' value=''>
           <div class="form-group">

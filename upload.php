@@ -1,24 +1,21 @@
 <?php
-
 /**
+ * Template Name: Upload (backend)
  * Description: Uploads an image to a chapter
  */
+?>
+
+<?php
 include_once 'lib/Chapter.php';
 include_once 'lib/Comic.php';
 include_once 'lib/Page.php';
-
-$requestMethod = $_SERVER['REQUEST_METHOD'];
-
-// Get all images and chapters
-if ($requestMethod == 'GET') {
-	$comic = Comic::factory();
-	echo json_encode($comic->toArray());
-}
 
 // Only logged in users have access to POST and DELETE
 if (!current_user_can('upload_files')) {
     return;
 }
+
+$requestMethod = $_SERVER['REQUEST_METHOD'];
 
 if ($requestMethod == 'DELETE') {
 	$page = Page::findById($_GET['page_id']);

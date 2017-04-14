@@ -426,3 +426,12 @@ a img.aligncenter {
 	width: auto;
 	z-index: 100000; /* Above WP toolbar. */
 }
+
+.header-row {
+  padding: 24px 0;
+}
+
+.header-row .header-btn {
+  float: right;
+  margin-top: 20px;
+}
