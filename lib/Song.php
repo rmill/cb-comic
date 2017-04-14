@@ -13,26 +13,29 @@ class Song {
     $this->filename = $filename;
   }
 
-
   public static function findAllByChapter($chapterId) {
       $database = Connection::getInstance();
       $values = array('chapter_id' => (int) $chapterId);
       $results = $database->run('SELECT * FROM songs WHERE chapter_id = :chapter_id ORDER BY number ASC', $values);
+      $songs = array();
 
       // Hydrate the Pages
-      $songs = array();
-      foreach($results as $result) {
-          $song = new self(
-              $result['chapter_id'],
-              $result['filename'],
-          );
-
-          $song->setId($result['id']);
-
-          $songs[] = $song;
+      if ($results) {
+        foreach($results as $result) {
+            $song = new self($result['chapter_id'], $result['filename']);
+            $song->setId($result['id']);
+            $songs[] = $song;
+        }
       }
 
-      return $songss;
+      return $songs;
+  }
+
+  public function toArray() {
+    return array(
+      'chapterId' => $this->chapterId,
+      'filename' => $this->filename
+    );
   }
 }
 ?>

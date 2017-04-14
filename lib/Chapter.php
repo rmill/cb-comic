@@ -1,6 +1,7 @@
 <?php
 
 include_once 'Page.php';
+include_once 'Song.php';
 include_once 'database.php';
 
 class Chapter {
@@ -13,7 +14,7 @@ class Chapter {
     /**
      * Factory
      */
-    public function factory($values) {
+    public static function factory($values) {
         // Get the pages from the database
         $pages = Page::findAllByChapter($values['id']);
         $songs = Song::findAllByChapter($values['id']);
@@ -54,6 +55,10 @@ class Chapter {
         return $this->pages;
     }
 
+    public function getSongs() {
+        return $this->songs;
+    }
+
     public function addPage(Page $page) {
         $pages[$page->getNumber()] = $page;
     }
@@ -64,11 +69,17 @@ class Chapter {
             $pages[] = $page->toArray();
         }
 
+        $songs = array();
+        foreach ($this->getSongs() as $song) {
+            $songs[] = $song->toArray();
+        }
+
         $chapterArray = array(
             'id' => $this->getId(),
             'number' => $this->getNumber(),
             'name' => $this->getName(),
-            'pages' => $pages
+            'pages' => $pages,
+            'songs' => $songs
         );
 
         return $chapterArray;

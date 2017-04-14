@@ -3,7 +3,6 @@
 /**
  * Description: Uploads an image to a chapter
  */
-
 include_once 'lib/Chapter.php';
 include_once 'lib/Comic.php';
 include_once 'lib/Page.php';

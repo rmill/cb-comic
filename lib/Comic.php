@@ -14,7 +14,7 @@ class Comic {
     /**
      * Factory
      */
-    public function factory() {
+    public static function factory() {
         // Get all of the information from the database
         $chapters = Chapter::findAll();
         return new self($chapters);

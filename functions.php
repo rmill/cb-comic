@@ -109,6 +109,7 @@ function naturo_lite_font_url(){
 function register_script($name, $dependencies = array()) {
     $uri = get_template_directory_uri() . "/js/$name.js";
     $path = get_template_directory() . "/js/$name.js";
+
     $dateModified = filemtime($path);
 
     wp_register_script(
@@ -120,14 +121,14 @@ function register_script($name, $dependencies = array()) {
 }
 
 function init_scripts() {
-    register_script('jquery');
-    register_script('content-navigation', ['jquery']);
-    register_script('responsive-menu', ['jquery']);
-    register_script('volume', ['jquery']);
+    register_script('jquery-2.1.4.min');
+    register_script('content-navigation', ['jquery-2.1.4.min']);
+    register_script('responsive-menu', ['jquery-2.1.4.min']);
+    register_script('volume', ['jquery-2.1.4.min']);
 
-    wp_enqueue_script('jquery');
+    wp_enqueue_script('jquery-2.1.4.min');
     wp_enqueue_script('responsive-menu');
-    
+
     if (is_home()) {
       wp_enqueue_script('content-navigation');
       wp_enqueue_script('volume');
