@@ -123,10 +123,10 @@ function register_script($name, $dependencies = array()) {
 function init_scripts() {
     register_script('bootstrap.min');
     register_script('jquery-2.1.4.min');
-    register_script('content-navigation', ['jquery-2.1.4.min']);
-    register_script('responsive-menu', ['jquery-2.1.4.min']);
-    register_script('upload', ['jquery-2.1.4.min']);
-    register_script('volume', ['jquery-2.1.4.min']);
+    register_script('content-navigation', array('jquery-2.1.4.min'));
+    register_script('responsive-menu', array('jquery-2.1.4.min'));
+    register_script('upload', array('jquery-2.1.4.min'));
+    register_script('volume', array('jquery-2.1.4.min'));
 
     wp_enqueue_script('jquery-2.1.4.min');
     wp_enqueue_script('responsive-menu');
