@@ -134,7 +134,7 @@ foreach ($comic->getChapters() as $chapter) {
       <div class="modal-body">
         Are you sure that you want to delete the page?
 
-        <form enctype="multipart/form-data" action="/wp-content/themes/cb-comics/upload.php" method="DELETE">
+        <form enctype="multipart/form-data" action="/upload-script" method="DELETE">
           <input type="hidden" name='resource' value='page'>
           <input type="hidden" id="pageId" name='page_id' value=''>
         </form>
