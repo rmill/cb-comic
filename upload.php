@@ -36,7 +36,7 @@ if ($requestMethod == 'POST') {
 
 		// Upload the image
 		$filePath = $_FILES['page_image']['tmp_name'];
-		$newFilePath = getcwd() . '/../../../wp-content/uploads/live/' . $_FILES['page_image']['name'];
+		$newFilePath = ABSPATH . 'wp-content/uploads/live/' . $_FILES['page_image']['name'];
 
 		rename($filePath, $newFilePath);
 		chmod($newFilePath, 0644);
