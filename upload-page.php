@@ -127,16 +127,16 @@ foreach ($comic->getChapters() as $chapter) {
 <div class="modal fade" id="deletePageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header">    
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Delete Page</h4>
       </div>
       <div class="modal-body">
         Are you sure that you want to delete the page?
 
-        <form enctype="multipart/form-data" action="/upload-script" method="DELETE">
-          <input type="hidden" name='resource' value='page'>
-          <input type="hidden" id="pageId" name='page_id' value=''>
+        <form enctype="multipart/form-data" action="/upload-script" method="POST">
+          <input type="hidden" name='resource' value='delete_page'>
+          <input type="hidden" id="pageId" name='id' value=''>
         </form>
       </div>
       <div class="modal-footer">
