@@ -25,7 +25,7 @@
   </div>
 
   <div class='comic-page'>
-    <img />
+    <img></img>
   </div>
 
   <div class="content-navigation">

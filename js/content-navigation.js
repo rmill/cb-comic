@@ -186,6 +186,7 @@ window.onload = function () {
 
   $.ajax({
     url: '/api/',
+    cache: false,
     success: function(response) {
       comic = JSON.parse(response);
 

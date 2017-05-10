@@ -22,7 +22,7 @@ if ($requestMethod == 'POST') {
 	$resourceType = $data['resource'];
 
   if ($resourceType == 'delete_page') {
-    $page = Page::findById($_POST['id']);
+    $page = Page::findById($data['id']);
 
   	if (!$page) {
   		return;
@@ -40,14 +40,16 @@ if ($requestMethod == 'POST') {
 
 		rename($filePath, $newFilePath);
 		chmod($newFilePath, 0644);
-		header("Location: " . $_SERVER['HTTP_REFERER']);
 	}
 
 	if ($resourceType == 'chapter') {
 		$resource = new Chapter($data['chapter_number'], $data['chapter_title']);
 	}
 
-	$resource->save();
+  if ($resource) {
+  	$resource->save();
+  }
 }
 
+header("Location: " . $_SERVER['HTTP_REFERER']);
 return '';
