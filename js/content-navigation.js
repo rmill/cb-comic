@@ -157,23 +157,23 @@ var contentNavigation = {
     }
   },
 
-  playSong(song) {
+  playSong: function(song) {
     if(!song) {
       return;
     }
 
-    this.songEl.attr('src', filePath);
+    this.songEl.attr('src', song.filename);
     this.songEl.get(0).load();
     this.songEl.get(0).play();
   },
 
-  playNextSong() {
+  playNextSong: function() {
     this.song++;
-    if (this.song > this.comic.chapters[chapter].songs.length) {
+    if (this.song > this.comic.chapters[this.chapter].songs.length) {
       this.song = 0;
     }
 
-    this.playSong(this.comic.chapters[chapter].songs[this.song]);
+    this.playSong(this.comic.chapters[this.chapter].songs[this.song]);
   }
 }
 
@@ -198,7 +198,7 @@ window.onload = function () {
         imgEl: $('.comic-page img'),
         chapterSelectEl: $('.content-navigation .chapter-select'),
         comic: comic,
-        songEl: $('.audio')
+        songEl: $('#soundtrack')
       });
     }
   });

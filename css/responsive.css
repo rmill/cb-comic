@@ -25,6 +25,23 @@
   .header-links-separator {
     display: none;
   }
+
+  .volume {
+    margin-top: 10px;
+    position: relative;
+    display: block;
+    right: inherit;
+  }
+
+  .volume-slider {
+    float: left;
+    margin-left: 26px;
+    width: 29vw;
+  }
+
+  .volume-icon {
+    float: left;
+  }
 }
 
 @media screen and (max-width: 580px) {
@@ -55,5 +72,23 @@
 
   .content-navigation-link {
     display: none;
+  }
+}
+
+@media screen and (max-width: 353px) {
+  h2 {
+    font-size: 20px;
+  }
+
+  .header-links-btn {
+    margin-left: 14px;
+  }
+
+  .volume-slider {
+    width: 27vw;
+  }
+
+  .volume-icon {
+    margin-top: 2px;
   }
 }

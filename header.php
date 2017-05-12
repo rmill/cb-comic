@@ -29,6 +29,9 @@
     <a href="https://www.patreon.com/cbcomic">Patreon</a><br class="mobile-only"/><span class="header-links-separator"></span>
     <a href="https://cb-comic.com/soundtrack">Soundtrack</a><br class="mobile-only"/><span class="header-links-separator"></span>
     <a href="https://redbubble.com/people/cbcomic">CB Store</a>
-    <i class="volume fa" aria-hidden="true"></i>
+    <div class="volume">
+      <i class="volume-icon fa" aria-hidden="true"></i>
+      <input class="volume-slider" type="range" min="0" max="100"></input>
+    </div>
   </h2>
 </div>

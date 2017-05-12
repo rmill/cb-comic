@@ -14,6 +14,12 @@ include_once 'lib/Comic.php';
 $comic = Comic::factory();
 ?>
 
+<style>
+ .volume {
+   display: none;       
+ }
+</style>
+
 <div class="container">
 <div class="row header-row">
 	<h1 class="col-md-8">Chapters</h1>

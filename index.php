@@ -39,6 +39,6 @@
   </div>
 </div>
 
-<audio id="audio"></audio>
+<audio id="soundtrack"></audio>
 
 <?php get_footer(); ?>
