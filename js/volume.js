@@ -7,11 +7,11 @@ jQuery(document).ready(function($) {
   var muted = window.localStorage.getItem('cb-muted') === 'true';
 
   if (isNaN(curVolume)) {
-    curVolume = 20;
+    curVolume = 0;
   }
 
   if (isNaN(storedVolume)) {
-    storedVolume = 20;
+    storedVolume = 0;
   }
 
   render();
