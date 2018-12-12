@@ -25,7 +25,7 @@
   </div>
 
   <div class='comic-page'>
-    <img />
+    <img></img>
   </div>
 
   <div class="content-navigation">
@@ -39,6 +39,6 @@
   </div>
 </div>
 
-<audio id="audio"></audio>
+<audio id="soundtrack"></audio>
 
 <?php get_footer(); ?>

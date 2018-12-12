@@ -1,7 +1,5 @@
 <?php
 
-include_once 'config.php';
-
 class Connection {
 
     private static $_instance;
@@ -10,10 +8,10 @@ class Connection {
 
     public function __construct() {
         $this->connection = new mysqli(
-            DATABASE_HOST,
-            DATABASE_USER,
-            DATABASE_PASSWORD,
-            DATABASE_NAME
+            DB_HOST,
+            DB_USER,
+            DB_PASSWORD,
+            DB_NAME
         );
     }
 

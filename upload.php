@@ -17,37 +17,39 @@ if (!current_user_can('upload_files')) {
 
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-if ($requestMethod == 'DELETE') {
-	$page = Page::findById($_GET['page_id']);
-
-	if (!$page) {
-		return;
-	}
-
-	$page->delete();
-}
-
 if ($requestMethod == 'POST') {
 	$data = $_POST;
 	$resourceType = $data['resource'];
+
+  if ($resourceType == 'delete_page') {
+    $page = Page::findById($data['id']);
+
+  	if (!$page) {
+  		return;
+  	}
+
+  	$page->delete();
+  }
 
 	if ($resourceType == 'page') {
 		$resource = new Page($data['page_name'], $data['page_number'], $data['chapter_id'], $_FILES['page_image']['name']);
 
 		// Upload the image
 		$filePath = $_FILES['page_image']['tmp_name'];
-		$newFilePath = getcwd() . '/../../../wp-content/uploads/live/' . $_FILES['page_image']['name'];
+		$newFilePath = ABSPATH . 'wp-content/uploads/live/' . $_FILES['page_image']['name'];
 
 		rename($filePath, $newFilePath);
 		chmod($newFilePath, 0644);
-		header("Location: " . $_SERVER['HTTP_REFERER']);
 	}
 
 	if ($resourceType == 'chapter') {
 		$resource = new Chapter($data['chapter_number'], $data['chapter_title']);
 	}
 
-	$resource->save();
+  if ($resource) {
+  	$resource->save();
+  }
 }
 
+header("Location: " . $_SERVER['HTTP_REFERER']);
 return '';

@@ -14,6 +14,12 @@ include_once 'lib/Comic.php';
 $comic = Comic::factory();
 ?>
 
+<style>
+ .volume {
+   display: none;       
+ }
+</style>
+
 <div class="container">
 <div class="row header-row">
 	<h1 class="col-md-8">Chapters</h1>
@@ -74,21 +80,21 @@ foreach ($comic->getChapters() as $chapter) {
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Add Chapter</h4>
       </div>
-      <div class="modal-body">
-        <form>
+			<form enctype="multipart/form-data" action="/upload-script" method="POST">
+	      <div class="modal-body">
           <input type="hidden" name='resource' value='chapter'>
           <div class="form-group">
             <input type="text" class="form-control" id="chapterTile" name="chapter_title" placeholder="Title">
           </div>
           <div class="form-group">
             <input type="text" class="form-control" id="chapterNumber" name="chapter_number" placeholder="Chapter number">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary submit">Submit</button>
-      </div>
+	      	</div>
+				</div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="submit" class="btn btn-primary submit">Submit</button>
+	      </div>
+			</form>
     </div>
   </div>
 </div>
@@ -100,26 +106,27 @@ foreach ($comic->getChapters() as $chapter) {
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Add Page</h4>
       </div>
-      <div class="modal-body">
-        <form enctype="multipart/form-data" action="/upload-script" method="POST">
-          <input type="hidden" name='resource' value='page'>
-          <input type="hidden" id="chapterId" name='chapter_id' value=''>
-          <div class="form-group">
-            <input type="text" class="form-control" id="pageName" name="page_name" placeholder="Name">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="pageNumber" name="page_number" placeholder="Page number">
-          </div>
-          <div class="form-group">
-            <label for="imageFile">File input</label>
-            <input type="file" name="page_image" id="imageFile">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary submit">Submit</button>
-      </div>
+		  <form enctype="multipart/form-data" action="/upload-script" method="POST">
+	      <div class="modal-body">
+	        <form enctype="multipart/form-data" action="/upload-script" method="POST">
+	          <input type="hidden" name='resource' value='page'>
+	          <input type="hidden" id="chapterId" name='chapter_id' value=''>
+	          <div class="form-group">
+	            <input type="text" class="form-control" id="pageName" name="page_name" placeholder="Name">
+	          </div>
+	          <div class="form-group">
+	            <input type="text" class="form-control" id="pageNumber" name="page_number" placeholder="Page number">
+	          </div>
+	          <div class="form-group">
+	            <label for="imageFile">File input</label>
+	            <input type="file" name="page_image" id="imageFile">
+	          </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="submit" class="btn btn-primary submit">Submit</button>
+	      </div>
+			</form>
     </div>
   </div>
 </div>
@@ -131,18 +138,17 @@ foreach ($comic->getChapters() as $chapter) {
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Delete Page</h4>
       </div>
-      <div class="modal-body">
-        Are you sure that you want to delete the page?
-
-        <form enctype="multipart/form-data" action="/upload-script" method="DELETE">
-          <input type="hidden" name='resource' value='page'>
-          <input type="hidden" id="pageId" name='page_id' value=''>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary submit">Submit</button>
-      </div>
+			<form enctype="multipart/form-data" action="/upload-script" method="POST">
+	      <div class="modal-body">
+	        Are you sure that you want to delete the page?
+          <input type="hidden" name='resource' value='delete_page'>
+          <input type="hidden" id="pageId" name='id' value=''>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+	        <button type="submit" class="btn btn-primary submit">Submit</button>
+	      </div>
+      </form>
     </div>
   </div>
 </div>
